@@ -1,0 +1,91 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Product Manager";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<div class="action">
+    <h2>Product Manager</h2>
+    <button class="btn btn-primary" id="addBtn">Thêm</button>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Hình ảnh</th>
+                        <th>Tên</th>
+                        <th>Loại</th>
+                        <th>Giá</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.ProductId</td>
+                            <td> <img src="@product.ProductImgURL" style="width:50px; height:50px" /></td>
+                            <td> @product.ProductName</td>
+                            @*<td> @product.ProductType</td>*@
+                            <td> @product.ProductPrice</td>
+                            <td>
+                                <div>
+                                   <a class="bi bi-x"></a>
+                                   <a class="bi bi-pen"></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@*modal cho product*@
+<div class="product-modal modal" id="productModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5>Nhập thông tin sản phẩm</h5>
+        </div>
+        <div class="modal-body">
+             <form asp-controller="ProductManager" asp-action="AddNewProduct" method="post">
+                  <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" class="form-control" name="ProductName">
+                  </div>
+                  <div class="mb-3">
+                        <label for="" class="form-label">Link hình ảnh:</label>
+                        <input type="text" class="form-control" name="ProductImgURL">
+                  </div>
+                  <div class="mb-3">
+                        <label for="" class="form-label">Loại:</label>
+                        <input type="text" class="form-control" name="">
+                  </div>
+                  <div class="mb-3">
+                        <label for="" class="form-label">Giá thành:</label>
+                        <input type="number" class="form-control" name="ProductPrice">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Thêm</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var modal = document.getElementById("productModal");
+    var addBtn = document.getElementById("addBtn");
+
+    addBtn.onclick = function(){
+        modal.style.display = "block";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+</script>

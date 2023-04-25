@@ -1,0 +1,10 @@
+@model List<DogViewModel>
+    <h1>Hello Worldd Bruh</h1>
+    <p>This is the index page of HelloWorld</p>
+
+    @foreach (var dog in Model) {
+    <li>
+        <h4>A dog name @dog.name says hello</h4>
+        <h4>@dog.name is @dog.age years old</h4>
+    </li>
+    }

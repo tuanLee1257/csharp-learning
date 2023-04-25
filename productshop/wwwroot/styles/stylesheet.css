@@ -1,0 +1,71 @@
+﻿:root {
+    --background-color: aliceblue;
+}
+.action{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+.action button{
+    inline-size:7rem;
+}
+.container-fluid{
+    display:flex;
+    padding:0;
+}
+.sidebar{
+    min-height: calc(100vh - 70px);
+    padding:0;
+    width:250px;
+    flex:0 0 auto;
+}
+.sidebar ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+.sidebar .sidebar-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    white-space:nowrap;
+    padding:1.125rem;
+    text-decoration:none;
+    color:black;
+}
+.main-content{
+    flex:1;
+    background: var(--background-color)
+}
+.main-content .content-wrapper{
+    padding:2.75rem 2.25rem;
+}
+.table{
+    display:table;
+    text-indent:inherit;
+    border-spacing:2px;
+}
+
+/* modal style*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
